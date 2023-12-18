@@ -47,7 +47,7 @@ pointBtn.addEventListener('click', () => {
 });
 equalsBtn.addEventListener('click', () => {
     let temp = secondNumber;
-    if (Operator != null) {
+    if (Operator != null) {      
         secondNumber = evaluate();
         if (secondNumber === 0) {
             secondNumber = '';
@@ -55,9 +55,6 @@ equalsBtn.addEventListener('click', () => {
         firstNumber += Operator
         Operator = null;
         firstNumber += temp;
-        console.log(firstNumber);
-        console.log(Operator);
-        console.log(secondNumber);
         updateScreen();
     }
 });
@@ -118,4 +115,15 @@ function evaluate() {
             return 0;
       }
 }
+
+function handleKeyboardInput(e) {
+    if (e.key >= 0 && e.key <= 9) appendNumber(e.key)
+    if (e.key === '.') appendPoint()
+    if (e.key === '=' || e.key === 'Enter') evaluate()
+    if (e.key === 'Backspace') deleteNumber()
+    if (e.key === 'Escape') clear()
+    if (e.key === '+' || e.key === '-' || e.key === '*' || e.key === '/')
+      setOperation(convertOperator(e.key))
+}
+
 updateScreen();

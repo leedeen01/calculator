@@ -5,6 +5,7 @@
 
 body {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 75vh;
@@ -65,7 +66,9 @@ button {
 .delete {
     width: 140px;
 }
-
+button {
+    background-color: whitesmoke;
+}
 .clear {
     background-color: lightcoral;
 }
@@ -79,4 +82,13 @@ button {
 .pointer,
 .equals {
     width: 65px
+}
+
+button:hover {
+    background-color: yellow;
+}
+
+.history {
+    background-color: aliceblue;
+    width:400px;
 }
