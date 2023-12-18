@@ -63,7 +63,6 @@ operatorBtn.forEach(op => {
     op.addEventListener('click', () => {
         Operator = op.textContent;
         if (firstNumber != '' && secondNumber != '' && Operator != null && Number.isInteger(firstNumber)) {
-            console.log('run');
             firstNumber = evaluate();
             secondNumber = '';
         } else {
@@ -116,14 +115,5 @@ function evaluate() {
       }
 }
 
-function handleKeyboardInput(e) {
-    if (e.key >= 0 && e.key <= 9) appendNumber(e.key)
-    if (e.key === '.') appendPoint()
-    if (e.key === '=' || e.key === 'Enter') evaluate()
-    if (e.key === 'Backspace') deleteNumber()
-    if (e.key === 'Escape') clear()
-    if (e.key === '+' || e.key === '-' || e.key === '*' || e.key === '/')
-      setOperation(convertOperator(e.key))
-}
 
 updateScreen();
